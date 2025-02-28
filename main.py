@@ -1,4 +1,16 @@
+import json
+
 MENU_OPCOES = ["Salvar", "Editar", "Deletar", "Favoritar", "Sair"]
+
+def salvar_contato():
+    
+    contato = {
+        "nome":input("\nDigite o nome do contato: "),
+        "numero":int(input("Digite o número do contato: "))
+    }
+
+    with open("lista_de_contatos.txt", "a") as arq:
+        arq.write(json.dumps(contato)+"\n")
 
 def exibir_titulo():
     mensagem = "Bem-vindo ao PyAgenda"
@@ -22,7 +34,7 @@ def obter_opcao_usuario():
             print("\nERROR! Informe um número inteiro válido")
 def executar_opcao(opcao_selecionada):
     if opcao_selecionada == 1:
-        print("Você escolheu: Salvar")
+        salvar_contato()
     elif opcao_selecionada == 2:
         print("Você escolheu: Editar")
     elif opcao_selecionada == 3:
