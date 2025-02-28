@@ -2,6 +2,20 @@ import json
 
 MENU_OPCOES = ["Salvar", "Editar", "Deletar", "Favoritar", "Sair"]
 
+def retornar_menu_principal():
+    while True:
+
+        opcao = input("\nDeseja retornar ao menu principal? \n[S]/[N]: ").upper()
+
+        if opcao in ["S","N"]:
+            
+            if opcao == "S":
+                main()
+            else:
+                print("Encerrando Programa")
+        else:
+            print("\nERROR! Selecione uma opção válida")
+                    
 def salvar_contato():
     
     contato = {
@@ -11,6 +25,8 @@ def salvar_contato():
 
     with open("lista_de_contatos.txt", "a") as arq:
         arq.write(json.dumps(contato)+"\n")
+
+    retornar_menu_principal()
 def editar_contato():
     # 1. Ler todos os contatos do arquivo
     with open("lista_de_contatos.txt", "r") as arq:
@@ -45,6 +61,7 @@ def editar_contato():
     with open("lista_de_contatos.txt", "w") as arq:
         arq.writelines(linhas)
 
+    retornar_menu_principal()
 def deletar_contato():
     # 1. Ler todos os contatos do arquivo
     with open("lista_de_contatos.txt", "r") as arq:
@@ -65,8 +82,8 @@ def deletar_contato():
     # 7. Sobrescrever o arquivo com os dados atualizados
     with open("lista_de_contatos.txt", "w") as arq:
         arq.writelines(linhas)
-    
 
+    retornar_menu_principal()    
 
 def exibir_titulo():
     mensagem = "Bem-vindo ao PyAgenda"

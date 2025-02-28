@@ -1,0 +1,4 @@
+{"nome": "Kelvin", "numero": 9992220069}
+{"nome": "Isadora", "numero": 92995257561}
+{"nome": "Icaro", "numero": 11111111111}
+{"nome": "Icaro", "numero": 4444444}
